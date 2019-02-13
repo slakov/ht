@@ -3,133 +3,141 @@
 
 <head>
 	<link rel="stylesheet" href="styles.css">
-  <title>jQuiz</title>
-  <style>
+	<title>jQuiz</title>
+	<style>
 
 
-  </style>
+	</style>
 </head>
 
 <body>
 
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-  <center>
-    <h1 id="question" text-align: center;>What do you like to do on the weekends? <br> (click the picture)</h1>
-  </center>
+	<center>
+		<h1 id="question" text-align: center;>What do you like to do on the weekends? <br> (click the picture)</h1>
+	</center>
 
-  <div id="mainDiv" class="row">
-    <div class="column">
-      <figure>
-        <img id="socpicture" src="./img/q1Social.jpg" style="width:100%" onclick="socplus()">
-        <figcaption id="soccaption"> Interacting with friends </figcaption>
-      </figure>
-    </div>
-    <div class="column">
-      <figure>
-        <img id="techpicture" src="./img/q1Tech.jpg" style="width:100%" onclick="techplus()">
-        <figcaption id="techcaption"> Entertaining with technology </figcaption>
-      </figure>
-    </div>
-    <div class="column">
-      <figure>
-        <img id="lifestylepicture" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="lifestyleplus()">
-        <figcaption id="lifestylecaption"> Work out </figcaption>
-      </figure>
-    </div>
-  </div>
+	<div id="firstRow" class="row">
+		<div class="column">
+			<figure>
+				<img id="socpicture" src="./img/q1Social.jpg" style="width:100%" onclick="socplus()">
+				<figcaption id="soccaption"> Interacting with friends </figcaption>
+			</figure>
+		</div>
+		<div class="column">
+			<figure>
+				<img id="techpicture" src="./img/q1Tech.jpg" style="width:100%" onclick="techplus()">
+				<figcaption id="techcaption"> Entertaining with technology </figcaption>
+			</figure>
+		</div>
+	</div>
+	<div id="secondRow" class="row">
+		<div class="column">
+			<figure>
+				<img id="lifestylepicture" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="lifestyleplus()">
+				<figcaption id="lifestylecaption"> Work out </figcaption>
+			</figure>
+		</div>
+		<div class="column">
+			<figure>
+				<img id="luxurypicture" src="./img/q1Luxury.jpg" style="width:100%" onclick="lifestyleplus()">
+				<figcaption id="lifestylecaption"> Work out </figcaption>
+			</figure>
+		</div>
+	</div>
 
-  <script>
+	<script>
 
-  var tech = 0;
-  var social = 0;
-  var lifestyle = 0;
-  var qn = 0;
-  var allQ = ["How did you learn about IQOS?", "What kind of grocery shopper are you?", "People would describe me as being…"];
-  var allCS = ["From friends", "Going to local shops and markets", "Party animal"];
-  var allCT = ["From Internet", "Online", "Geek"];
-  var allCL = ["From doctor", "Biological store", "An exercise enthusiast"];
-  var socNames = ["./img/q2Social.jpg", "q3Social.jpg", "q4Social.jpg"]
-  var techNames = ["./img/q2Tech.jpg", "q3Tech.jpg", "q4Tech.jpg"]
-  var lifestyleNames = ["./img/q2Lifestyle.jpg", "q3Lifestyle.jpg", "q4Lifestyle.jpg"]
-  var lQ = 1
-	var tQ = lQ + 1
+		var tech = 0;
+		var social = 0;
+		var lifestyle = 0;
+		var qn = 0;
+		var allQ = ["How did you learn about IQOS?", "What kind of grocery shopper are you?", "People would describe me as being…"];
+		var allCS = ["From friends", "Going to local shops and markets", "Party animal"];
+		var allCT = ["From Internet", "Online", "Geek"];
+		var allCL = ["From doctor", "Biological store", "An exercise enthusiast"];
+		var socNames = ["./img/q2Social.jpg", "q3Social.jpg", "q4Social.jpg"]
+		var techNames = ["./img/q2Tech.jpg", "q3Tech.jpg", "q4Tech.jpg"]
+		var lifestyleNames = ["./img/q2Lifestyle.jpg", "q3Lifestyle.jpg", "q4Lifestyle.jpg"]
+		var lQ = 1
+		var tQ = lQ + 1
 
-  function socplus(){
-    social = social + 1;
-    document.getElementById('question').innerHTML = allQ[qn];
-    document.getElementById('soccaption').innerHTML = allCS[qn];
-    document.getElementById('techcaption').innerHTML = allCT[qn];
-    document.getElementById('lifestylecaption').innerHTML = allCL[qn];
-    document.getElementById('socpicture').src = socNames[qn];
-    document.getElementById('techpicture').src = techNames[qn];
-    document.getElementById('lifestylepicture').src = lifestyleNames[qn];
-    qn = qn + 1;
-    if (qn > lQ){congrats2()}
-  }
+		function socplus(){
+			social = social + 1;
+			document.getElementById('question').innerHTML = allQ[qn];
+			document.getElementById('soccaption').innerHTML = allCS[qn];
+			document.getElementById('techcaption').innerHTML = allCT[qn];
+			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
+			document.getElementById('socpicture').src = socNames[qn];
+			document.getElementById('techpicture').src = techNames[qn];
+			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
+			qn = qn + 1;
+			if (qn > lQ){congrats2()}
+		}
 
-  function techplus(){
-    tech = tech + 1;
-    document.getElementById('question').innerHTML = allQ[qn];
-    document.getElementById('soccaption').innerHTML = allCS[qn];
-    document.getElementById('techcaption').innerHTML = allCT[qn];
-    document.getElementById('lifestylecaption').innerHTML = allCL[qn];
-    document.getElementById('techpicture').src = techNames[qn];
-    document.getElementById('socpicture').src = socNames[qn];
-    document.getElementById('lifestylepicture').src = lifestyleNames[qn];
-    qn = qn + 1;
-    if (qn > lQ){congrats2()}
-  }
+		function techplus(){
+			tech = tech + 1;
+			document.getElementById('question').innerHTML = allQ[qn];
+			document.getElementById('soccaption').innerHTML = allCS[qn];
+			document.getElementById('techcaption').innerHTML = allCT[qn];
+			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
+			document.getElementById('techpicture').src = techNames[qn];
+			document.getElementById('socpicture').src = socNames[qn];
+			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
+			qn = qn + 1;
+			if (qn > lQ){congrats2()}
+		}
 
-  function lifestyleplus(){
-    lifestyle = lifestyle + 1;
-    document.getElementById('question').innerHTML = allQ[qn];
-    document.getElementById('soccaption').innerHTML = allCS[qn];
-    document.getElementById('techcaption').innerHTML = allCT[qn];
-    document.getElementById('lifestylecaption').innerHTML = allCL[qn];
-    document.getElementById('techpicture').src = techNames[qn];
-    document.getElementById('socpicture').src = socNames[qn];
-    document.getElementById('lifestylepicture').src = lifestyleNames[qn];
-    qn = qn + 1;
-    if (qn > lQ){congrats2()}
-  }
+		function lifestyleplus(){
+			lifestyle = lifestyle + 1;
+			document.getElementById('question').innerHTML = allQ[qn];
+			document.getElementById('soccaption').innerHTML = allCS[qn];
+			document.getElementById('techcaption').innerHTML = allCT[qn];
+			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
+			document.getElementById('techpicture').src = techNames[qn];
+			document.getElementById('socpicture').src = socNames[qn];
+			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
+			qn = qn + 1;
+			if (qn > lQ){congrats2()}
+		}
 
-	// Render output page
-	function congrats2(){
+		// Render output page
+		function congrats2(){
 
-    document.getElementById('question').innerHTML = "";
+			document.getElementById('question').innerHTML = "";
 
-    var chart = new CanvasJS.Chart("mainDiv", {
-      animationEnabled: true,
+			var chart = new CanvasJS.Chart("mainDiv", {
+				animationEnabled: true,
 
-      title:{
-        text:"Your personality composition is likely:"
-      },
-      axisX:{
-        interval: 1
-      },
-      axisY2:{
-        interlacedColor: "rgba(1,77,101,.2)",
-        gridColor: "rgba(1,77,101,.1)",
-        title: "Percentage"
-      },
-      data: [{
-        type: "bar",
-        name: "companies",
-        axisYType: "secondary",
-        color: "#014D65",
-        dataPoints: [
-          { y: Math.round(100*social/tQ), label: "Social" },
-          { y: Math.round(100*tech/tQ), label: "Technical" },
-          { y: Math.round(100*lifestyle/tQ), label: "Life Style" },
-        ]
-      }]
-    });
-    chart.render();
+				title:{
+					text:"Your personality composition is likely:"
+				},
+				axisX:{
+					interval: 1
+				},
+				axisY2:{
+					interlacedColor: "rgba(1,77,101,.2)",
+					gridColor: "rgba(1,77,101,.1)",
+					title: "Percentage"
+				},
+				data: [{
+					type: "bar",
+					name: "companies",
+					axisYType: "secondary",
+					color: "#014D65",
+					dataPoints: [
+					{ y: Math.round(100*social/tQ), label: "Social" },
+					{ y: Math.round(100*tech/tQ), label: "Technical" },
+					{ y: Math.round(100*lifestyle/tQ), label: "Life Style" },
+					]
+				}]
+			});
+			chart.render();
 
-  }
-	// End of the results output
+		}
+		// End of the results output
 
-</script>
+	</script>
 
 </body>
