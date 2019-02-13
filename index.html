@@ -21,13 +21,13 @@
 	<div id="firstRow" class="row">
 		<div class="column">
 			<figure>
-				<img id="socpicture" src="./img/q1Social.jpg" style="width:100%" onclick="socplus()">
+				<img id="l1" src="./img/q1Social.jpg" style="width:100%" onclick="nextQuestion('l1')">
 				<figcaption id="soccaption"> Interacting with friends </figcaption>
 			</figure>
 		</div>
 		<div class="column">
 			<figure>
-				<img id="techpicture" src="./img/q1Tech.jpg" style="width:100%" onclick="techplus()">
+				<img id="l2" src="./img/q1Tech.jpg" style="width:100%" onclick="nextQuestion('l2')">
 				<figcaption id="techcaption"> Entertaining with technology </figcaption>
 			</figure>
 		</div>
@@ -35,13 +35,13 @@
 	<div id="secondRow" class="row">
 		<div class="column">
 			<figure>
-				<img id="lifestylepicture" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="lifestyleplus()">
+				<img id="l3" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="nextQuestion('l3')">
 				<figcaption id="lifestylecaption"> Working out in a gym </figcaption>
 			</figure>
 		</div>
 		<div class="column">
 			<figure>
-				<img id="luxurypicture" src="./img/q1Luxury.jpg" style="width:100%" onclick="lifestyleplus()">
+				<img id="l4" src="./img/q1Luxury.jpg" style="width:100%" onclick="nextQuestion('l4')">
 				<figcaption id="lifestylecaption"> Shopping for luxury items </figcaption>
 			</figure>
 		</div>
@@ -77,7 +77,21 @@
   		"Luxury": 0,
 		};
 
-		function
+		function nextQuestion(pic){
+			console.log(pic);
+			var fname = document.getElementById(pic).src;
+			console.log(fname);
+			social = social + 1;
+			document.getElementById('question').innerHTML = allQ[qn];
+			document.getElementById('soccaption').innerHTML = allCS[qn];
+			document.getElementById('techcaption').innerHTML = allCT[qn];
+			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
+			document.getElementById('socpicture').src = socNames[qn];
+			document.getElementById('techpicture').src = techNames[qn];
+			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
+			qn = qn + 1;
+			if (qn > lQ){congrats2()}
+		}
 
 		function socplus(){
 			social = social + 1;
