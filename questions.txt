@@ -1,0 +1,41 @@
+1.       How do you like to spend your weekends?
+a.       Work out [Lifestyle]
+b.      Hang out with friends [Social]
+c.       Check off my to-do list [Convenience]
+d.      Play video games [Technology]
+
+2.       What do you usually do in a social gathering?
+a.       Try to meet new people [Social]
+b.      Find the best food & drinks spots [Lifestyle]
+c.       Make sure I look my best at all times [Vanity]
+d.      I always leave 5min early to avoid the crowds [Convenience]
+
+3.       My ideal get-away is:
+a.       In a luxury 5 star resort [Luxury]
+b.      A well-being retreat [Lifestyle]
+c.       Spending quality time with people I love [Social]
+d.      A break from daily hassles [Convenience]
+
+4.       What are you most likely to splurge on?
+a.       Latest tech gadgets [Technology]
+b.      High-end brands [Luxury]
+c.       Anything that can simplify my life [Convenience]
+d.      Beauty products [Vanity]
+
+5.       What do you do on date night?
+a.       Dinner at a high-end restaurant [Luxury]
+b.      Couple’s massage  [Lifestyle / Vanity]
+c.       Double date night with our friends [Social]
+d.      Not having to do chores for one evening [Convenience]
+
+6.       How would you describe your style?
+a.       Always on the go [Convenience]
+b.      Design brand only [Luxury]
+c.       Active & sporty [Lifestyle]
+d.      I like to accentuate my best body parts [Vanity]
+
+7.       If you had a salary increase of $1000, how would you spend it?
+a.       Shopping spree at my favorite design stores [Luxury]
+b.      Eat at my favorite restaurants more often [Lifestyle]
+c.       Get the latest gadgets I’ve always wanted [Technology]
+d.      Hiring a home aide to help me with my chores [Convenience]

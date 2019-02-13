@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 31%;
+  padding: 40px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+
+body {
+  background-color: #BEB6AA;
+}
+
+h1 {
+  color: blue;
+}
+
+h3 {
+  color: green;
+  font-size: 5em;
+}
+
+figure {
+  display: inline-block;
+  margin: 5px; /* adjust as needed */
+}
+
+figure img {
+  vertical-align: bottom;
+}
+
+figure {
+  display: table;
+  font-size: large;
+  text-align: center;
+  font-style: italic;
+  font-weight:bold;
+  padding: 0.5em;
+}
+
+figcaption {
+  display: table-caption;
+  caption-side: top;
+}
