@@ -23,13 +23,13 @@
 		<div class="column">
 			<figure>
 				<img id="l1" src="./img/q1Social.jpg" style="width:100%" onclick="nextQuestion('l1')">
-				<figcaption id="soccaption"> Interacting with friends </figcaption>
+				<figcaption id="l1caption"> Interacting with friends </figcaption>
 			</figure>
 		</div>
 		<div class="column">
 			<figure>
 				<img id="l2" src="./img/q1Tech.jpg" style="width:100%" onclick="nextQuestion('l2')">
-				<figcaption id="techcaption"> Entertaining with technology </figcaption>
+				<figcaption id="l2caption"> Entertaining with technology </figcaption>
 			</figure>
 		</div>
 	</div>
@@ -37,13 +37,13 @@
 		<div class="column">
 			<figure>
 				<img id="l3" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="nextQuestion('l3')">
-				<figcaption id="lifestylecaption"> Working out in a gym </figcaption>
+				<figcaption id="l3caption"> Working out in a gym </figcaption>
 			</figure>
 		</div>
 		<div class="column">
 			<figure>
 				<img id="l4" src="./img/q1Luxury.jpg" style="width:100%" onclick="nextQuestion('l4')">
-				<figcaption id="lifestylecaption"> Shopping for luxury items </figcaption>
+				<figcaption id="l4caption"> Shopping for luxury items </figcaption>
 			</figure>
 		</div>
 	</div>
@@ -57,15 +57,31 @@
 		var social = 0;
 		var lifestyle = 0;
 		var qn = 0;
+
 		var allQ = ["How did you learn about IQOS?",
 		"What kind of grocery shopper are you?",
 		"People would describe me as being…"];
-		var allCS = ["From friends", "Going to local shops and markets", "Party animal"];
-		var allCT = ["From Internet", "Online", "Geek"];
-		var allCL = ["From doctor", "Biological store", "An exercise enthusiast"];
-		var socNames = ["./img/q2Social.jpg", "q3Social.jpg", "q4Social.jpg"];
-		var techNames = ["./img/q2Tech.jpg", "q3Tech.jpg", "q4Tech.jpg"];
-		var lifestyleNames = ["./img/q2Lifestyle.jpg", "q3Lifestyle.jpg", "q4Lifestyle.jpg"];
+
+
+		var alll1 = ["From friends",
+		 "Going to local shops and markets",
+		 "Party animal"];
+
+		var alll2 = ["From Internet",
+		 "Online",
+		 "Geek"];
+
+		var alll3 = ["From doctor",
+		 "Biological store",
+		 "An exercise enthusiast"];
+
+		var alll4 = ["From doctor",
+		 "Biological store",
+		 "An exercise enthusiast"];
+
+		var namesl1 = ["Social", "Tech", "Lifestyle"]
+
+
 		var lQ = 1;
 		var tQ = lQ + 1;
 
@@ -74,64 +90,35 @@
   		"Lifestyle": 0,
   		"Social": 0,
   		"Convenience": 0,
-  		"Technology": 0,
+  		"Tech": 0,
   		"Luxury": 0,
 		};
 
 		function nextQuestion(pic){
-			console.log(pic);
+
 			var fname = document.getElementById(pic).src;
-			console.log(fname);
-			social = social + 1;
+
+			var last1 = fname.substring(fname.lastIndexOf("/") + 1, fname.length);
+			var last2 = last1.substring(2, last1.length - 4);
+
+			// increment score
+			score[last2] = score[last2] + 1;
+
+
 			document.getElementById('question').innerHTML = allQ[qn];
-			document.getElementById('soccaption').innerHTML = allCS[qn];
-			document.getElementById('techcaption').innerHTML = allCT[qn];
-			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
+			document.getElementById('l1caption').innerHTML = alll1[qn];
+			document.getElementById('l2caption').innerHTML = alll2[qn];
+			document.getElementById('l3caption').innerHTML = alll3[qn];
+			document.getElementById('l4caption').innerHTML = alll4[qn];
+
 			document.getElementById('socpicture').src = socNames[qn];
 			document.getElementById('techpicture').src = techNames[qn];
 			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
+
 			qn = qn + 1;
 			if (qn > lQ){congrats2()}
 		}
 
-		function socplus(){
-			social = social + 1;
-			document.getElementById('question').innerHTML = allQ[qn];
-			document.getElementById('soccaption').innerHTML = allCS[qn];
-			document.getElementById('techcaption').innerHTML = allCT[qn];
-			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
-			document.getElementById('socpicture').src = socNames[qn];
-			document.getElementById('techpicture').src = techNames[qn];
-			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
-			qn = qn + 1;
-			if (qn > lQ){congrats2()}
-		}
-
-		function techplus(){
-			tech = tech + 1;
-			document.getElementById('question').innerHTML = allQ[qn];
-			document.getElementById('soccaption').innerHTML = allCS[qn];
-			document.getElementById('techcaption').innerHTML = allCT[qn];
-			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
-			document.getElementById('techpicture').src = techNames[qn];
-			document.getElementById('socpicture').src = socNames[qn];
-			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
-			qn = qn + 1;
-			if (qn > lQ){congrats2()}
-		}
-
-		function lifestyleplus(){
-			lifestyle = lifestyle + 1;
-			document.getElementById('question').innerHTML = allQ[qn];
-			document.getElementById('soccaption').innerHTML = allCS[qn];
-			document.getElementById('techcaption').innerHTML = allCT[qn];
-			document.getElementById('lifestylecaption').innerHTML = allCL[qn];
-			document.getElementById('techpicture').src = techNames[qn];
-			document.getElementById('socpicture').src = socNames[qn];
-			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
-			qn = qn + 1;
-			if (qn > lQ){congrats2()}
-		}
 
 		// Render output page
 		function congrats2(){
