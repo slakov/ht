@@ -19,143 +19,153 @@
 		<h1 id="question" text-align: center;>What do you like to do on the weekends? <br> (click the picture)</h1>
 
 
-	<div id="firstRow" class="row">
-		<div class="column">
-			<figure>
-				<img id="l1" src="./img/q1Social.jpg" style="width:100%" onclick="nextQuestion('l1')">
-				<figcaption id="l1caption"> Interacting with friends </figcaption>
-			</figure>
+		<div id="firstRow" class="row">
+			<div class="column">
+				<figure>
+					<img id="l1" src="./img/q1Social.jpg" style="width:100%" onclick="nextQuestion('l1')">
+					<figcaption id="l1caption"> Interacting with friends </figcaption>
+				</figure>
+			</div>
+			<div class="column">
+				<figure>
+					<img id="l2" src="./img/q1Tech.jpg" style="width:100%" onclick="nextQuestion('l2')">
+					<figcaption id="l2caption"> Entertaining with technology </figcaption>
+				</figure>
+			</div>
 		</div>
-		<div class="column">
-			<figure>
-				<img id="l2" src="./img/q1Tech.jpg" style="width:100%" onclick="nextQuestion('l2')">
-				<figcaption id="l2caption"> Entertaining with technology </figcaption>
-			</figure>
+		<div id="secondRow" class="row">
+			<div class="column">
+				<figure>
+					<img id="l3" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="nextQuestion('l3')">
+					<figcaption id="l3caption"> Working out in a gym </figcaption>
+				</figure>
+			</div>
+			<div class="column">
+				<figure>
+					<img id="l4" src="./img/q1Luxury.jpg" style="width:100%" onclick="nextQuestion('l4')">
+					<figcaption id="l4caption"> Shopping for luxury items </figcaption>
+				</figure>
+			</div>
 		</div>
-	</div>
-	<div id="secondRow" class="row">
-		<div class="column">
-			<figure>
-				<img id="l3" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="nextQuestion('l3')">
-				<figcaption id="l3caption"> Working out in a gym </figcaption>
-			</figure>
-		</div>
-		<div class="column">
-			<figure>
-				<img id="l4" src="./img/q1Luxury.jpg" style="width:100%" onclick="nextQuestion('l4')">
-				<figcaption id="l4caption"> Shopping for luxury items </figcaption>
-			</figure>
-		</div>
-	</div>
 
 	</center>
 
 
 	<script>
 
-		var tech = 0;
-		var social = 0;
-		var lifestyle = 0;
-		var qn = 0;
-
-		var allQ = ["How did you learn about IQOS?",
-		"What kind of grocery shopper are you?",
-		"People would describe me as being…"];
+	var tech = 0;
+	var social = 0;
+	var lifestyle = 0;
+	var qn = 0;
 
 
-		var alll1 = ["From friends",
-		 "Going to local shops and markets",
-		 "Party animal"];
-
-		var alll2 = ["From Internet",
-		 "Online",
-		 "Geek"];
-
-		var alll3 = ["From doctor",
-		 "Biological store",
-		 "An exercise enthusiast"];
-
-		var alll4 = ["From doctor",
-		 "Biological store",
-		 "An exercise enthusiast"];
-
-		var namesl1 = ["Social", "Tech", "Lifestyle"]
+	var allQ = ["How did you learn about IQOS?",
+	"People would describe me as being…"];
 
 
-		var lQ = 1;
-		var tQ = lQ + 1;
+	var alll1 = ["From friends",
+	"Party animal"];
 
-		var score = {
-  		"Vanity": 0,
-  		"Lifestyle": 0,
-  		"Social": 0,
-  		"Convenience": 0,
-  		"Tech": 0,
-  		"Luxury": 0,
-		};
+	var alll2 = ["From Internet",
+	"Geek"];
 
-		function nextQuestion(pic){
+	var alll3 = ["From doctor",
+	"An exercise enthusiast"];
 
-			var fname = document.getElementById(pic).src;
+	var alll4 = ["At the local tobacco shop",
+	"Fashionable"];
 
-			var last1 = fname.substring(fname.lastIndexOf("/") + 1, fname.length);
-			var last2 = last1.substring(2, last1.length - 4);
+	var namesl1 = ["Social",
+	"Social"];
 
-			// increment score
-			score[last2] = score[last2] + 1;
+	var namesl2 = ["Tech",
+	"Tech"];
+
+	var namesl3 = ["Lifestyle",
+	"Lifestyle"];
+
+	var namesl4 = ["Convenience",
+	"Luxury"];
+
+	var lQ = 2;
+	var tQ = lQ + 1;
+
+	var score = {
+		"Vanity": 0,
+		"Lifestyle": 0,
+		"Social": 0,
+		"Convenience": 0,
+		"Tech": 0,
+		"Luxury": 0,
+	};
+
+	function nextQuestion(pic){
+
+		var fname = document.getElementById(pic).src;
+
+		var last1 = fname.substring(fname.lastIndexOf("/") + 1, fname.length);
+		var last2 = last1.substring(2, last1.length - 4);
+
+		// increment score
+		score[last2] = score[last2] + 1;
+
+		var qC = qn + 2;
+
+		document.getElementById('question').innerHTML = allQ[qn];
+		document.getElementById('l1caption').innerHTML = alll1[qn];
+		document.getElementById('l2caption').innerHTML = alll2[qn];
+		document.getElementById('l3caption').innerHTML = alll3[qn];
+		document.getElementById('l4caption').innerHTML = alll4[qn];
+
+		document.getElementById('l1').src = "./img/q" + qC + namesl1[qn] + ".jpg";
+		document.getElementById('l2').src = "./img/q" + qC + namesl2[qn] + ".jpg";
+		document.getElementById('l3').src = "./img/q" + qC + namesl3[qn] + ".jpg";
+		document.getElementById('l4').src = "./img/q" + qC + namesl4[qn] + ".jpg";
+
+		qn = qn + 1;
+		if (qn > lQ){congrats2()}
+	}
 
 
-			document.getElementById('question').innerHTML = allQ[qn];
-			document.getElementById('l1caption').innerHTML = alll1[qn];
-			document.getElementById('l2caption').innerHTML = alll2[qn];
-			document.getElementById('l3caption').innerHTML = alll3[qn];
-			document.getElementById('l4caption').innerHTML = alll4[qn];
+	// Render output page
+	function congrats2(){
 
-			document.getElementById('socpicture').src = socNames[qn];
-			document.getElementById('techpicture').src = techNames[qn];
-			document.getElementById('lifestylepicture').src = lifestyleNames[qn];
+		document.getElementById('question').innerHTML = "";
+		document.getElementById('secondRow').innerHTML = "";
 
-			qn = qn + 1;
-			if (qn > lQ){congrats2()}
-		}
+		var chart = new CanvasJS.Chart("firstRow", {
+			animationEnabled: true,
 
+			title:{
+				text:"Your personality composition is likely:"
+			},
+			axisX:{
+				interval: 1
+			},
+			axisY2:{
+				interlacedColor: "rgba(1,77,101,.2)",
+				gridColor: "rgba(1,77,101,.1)",
+				title: "Percentage"
+			},
+			data: [{
+				type: "bar",
+				name: "companies",
+				axisYType: "secondary",
+				color: "#014D65",
+				dataPoints: [
+					{ y: Math.round(100*score["Social"]/tQ), label: "Social" },
+					{ y: Math.round(100*score["Tech"]/tQ), label: "Tech" },
+					{ y: Math.round(100*score["Lifestyle"]/tQ), label: "Lifestyle" },
+					{ y: Math.round(100*score["Convenience"]/tQ), label: "Convenience" },
+					{ y: Math.round(100*score["Vanity"]/tQ), label: "Vanity" },
+					{ y: Math.round(100*score["Luxury"]/tQ), label: "Luxury" },
+				]
+			}]
+		});
+		chart.render();
 
-		// Render output page
-		function congrats2(){
-
-			document.getElementById('question').innerHTML = "";
-			document.getElementById('secondRow').innerHTML = "";
-
-			var chart = new CanvasJS.Chart("firstRow", {
-				animationEnabled: true,
-
-				title:{
-					text:"Your personality composition is likely:"
-				},
-				axisX:{
-					interval: 1
-				},
-				axisY2:{
-					interlacedColor: "rgba(1,77,101,.2)",
-					gridColor: "rgba(1,77,101,.1)",
-					title: "Percentage"
-				},
-				data: [{
-					type: "bar",
-					name: "companies",
-					axisYType: "secondary",
-					color: "#014D65",
-					dataPoints: [
-					{ y: Math.round(100*social/tQ), label: "Social" },
-					{ y: Math.round(100*tech/tQ), label: "Technical" },
-					{ y: Math.round(100*lifestyle/tQ), label: "Life Style" },
-					]
-				}]
-			});
-			chart.render();
-
-		}
-		// End of the results output
+	}
+	// End of the results output
 
 	</script>
 
