@@ -108,7 +108,7 @@
 	var namesl4 = ["Convenience",
 	"Luxury", "Convenience", "Vanity", "Luxury", "Vanity"];
 
-	var lQ = 5;
+	var lQ = 6;
 	var tQ = lQ + 1;
 
 	var score = {
@@ -150,6 +150,25 @@
 
 	// Render output page
 	function congrats2(){
+
+		// normalize scores
+		score["Tech"] = score["Tech"] * 1.5;
+		score["Lifestyle"] = score["Lifestyle"] * (6/5);
+		score["Convenience"] = score["Convenience"] * 1.5;
+		score["Vanity"] = score["Vanity"] * 2;
+
+		function sum( obj ) {
+		  var sum = 0;
+		  for( var el in obj ) {
+		    if( obj.hasOwnProperty( el ) ) {
+		      sum += parseFloat( obj[el] );
+		    }
+		  }
+		  return sum;
+		}
+
+		tQ = sum(score);
+
 
 		document.getElementById('question').innerHTML = "";
 		document.getElementById('secondRow').innerHTML = "";
