@@ -68,145 +68,199 @@
 ];
 
 
-	var alll1 = ["From friends",
-	"Party animal",
-	"Dinner at a high-end restaurant",
-	"Latest gadgets",
-	"All inclusive package",
-	"He/She gets along with my friends"];
+var alll1 = ["From friends",
+"Party animal",
+"Dinner at a high-end restaurant",
+"Latest gadgets",
+"All inclusive package",
+"He/She gets along with my friends"];
 
-	var alll2 = ["From Internet",
-	"Geek",
-	"Couples massage",
-	"High-end brands",
-	"Visiting family and friends",
-	"That he/she lives healthy"];
+var alll2 = ["From Internet",
+"Geek",
+"Couples massage",
+"High-end brands",
+"Visiting family and friends",
+"That he/she lives healthy"];
 
-	var alll3 = ["From doctor",
-	"An exercise enthusiast",
-	"Double date night with our friends",
-	"Anything that can simplify my life",
-	"Active holiday",
-	"That he/she is wealthy"];
+var alll3 = ["From doctor",
+"An exercise enthusiast",
+"Double date night with our friends",
+"Anything that can simplify my life",
+"Active holiday",
+"That he/she is wealthy"];
 
-	var alll4 = ["At the local tobacco shop",
-	"Fashionable",
-	"Not having to do chores for one evening",
-	"Beauty products",
-	"Luxury escape",
-	"That he/she is good looking"];
+var alll4 = ["At the local tobacco shop",
+"Fashionable",
+"Not having to do chores for one evening",
+"Beauty products",
+"Luxury escape",
+"That he/she is good looking"];
 
-	var namesl1 = ["Social",
-	"Social", "Luxury", "Tech", "Convenience", "Social"];
+var namesl1 = ["Social",
+"Social", "Luxury", "Tech", "Convenience", "Social"];
 
-	var namesl2 = ["Tech",
-	"Tech", "Vanity", "Luxury", "Social", "Lifestyle"];
+var namesl2 = ["Tech",
+"Tech", "Vanity", "Luxury", "Social", "Lifestyle"];
 
-	var namesl3 = ["Lifestyle",
-	"Lifestyle", "Social", "Convenience", "Lifestyle", "Luxury"];
+var namesl3 = ["Lifestyle",
+"Lifestyle", "Social", "Convenience", "Lifestyle", "Luxury"];
 
-	var namesl4 = ["Convenience",
-	"Luxury", "Convenience", "Vanity", "Luxury", "Vanity"];
+var namesl4 = ["Convenience",
+"Luxury", "Convenience", "Vanity", "Luxury", "Vanity"];
 
-	var lQ = 6;
-	var tQ = lQ + 1;
+var lQ = 6;
+var tQ = lQ + 1;
 
-	var score = {
-		"Vanity": 0,
-		"Lifestyle": 0,
-		"Social": 0,
-		"Convenience": 0,
-		"Tech": 0,
-		"Luxury": 0,
-	};
+var score = {
+	"Vanity": 0,
+	"Lifestyle": 0,
+	"Social": 0,
+	"Convenience": 0,
+	"Tech": 0,
+	"Luxury": 0,
+};
 
-	function nextQuestion(pic){
+function nextQuestion(pic){
 
-		var fname = document.getElementById(pic).src;
+	var fname = document.getElementById(pic).src;
 
-		var last1 = fname.substring(fname.lastIndexOf("/") + 1, fname.length);
-		var last2 = last1.substring(2, last1.length - 4);
+	var last1 = fname.substring(fname.lastIndexOf("/") + 1, fname.length);
+	var last2 = last1.substring(2, last1.length - 4);
 
-		// increment score
-		score[last2] = score[last2] + 1;
+	// increment score
+	score[last2] = score[last2] + 1;
 
-		var qC = qn + 2;
+	var qC = qn + 2;
 
-		document.getElementById('question').innerHTML = allQ[qn];
-		document.getElementById('l1caption').innerHTML = alll1[qn];
-		document.getElementById('l2caption').innerHTML = alll2[qn];
-		document.getElementById('l3caption').innerHTML = alll3[qn];
-		document.getElementById('l4caption').innerHTML = alll4[qn];
+	document.getElementById('question').innerHTML = allQ[qn];
+	document.getElementById('l1caption').innerHTML = alll1[qn];
+	document.getElementById('l2caption').innerHTML = alll2[qn];
+	document.getElementById('l3caption').innerHTML = alll3[qn];
+	document.getElementById('l4caption').innerHTML = alll4[qn];
 
-		document.getElementById('l1').src = "./img/q" + qC + namesl1[qn] + ".jpg";
-		document.getElementById('l2').src = "./img/q" + qC + namesl2[qn] + ".jpg";
-		document.getElementById('l3').src = "./img/q" + qC + namesl3[qn] + ".jpg";
-		document.getElementById('l4').src = "./img/q" + qC + namesl4[qn] + ".jpg";
+	document.getElementById('l1').src = "./img/q" + qC + namesl1[qn] + ".jpg";
+	document.getElementById('l2').src = "./img/q" + qC + namesl2[qn] + ".jpg";
+	document.getElementById('l3').src = "./img/q" + qC + namesl3[qn] + ".jpg";
+	document.getElementById('l4').src = "./img/q" + qC + namesl4[qn] + ".jpg";
 
-		qn = qn + 1;
-		if (qn > lQ){congrats2()}
+	qn = qn + 1;
+	if (qn > lQ){congrats3()}
+}
+
+
+// Render output page
+function congrats2(){
+
+	// normalize scores
+	score["Tech"] = score["Tech"] * 1.5;
+	score["Lifestyle"] = score["Lifestyle"] * (6/5);
+	score["Convenience"] = score["Convenience"] * 1.5;
+	score["Vanity"] = score["Vanity"] * 2;
+
+	function sum( obj ) {
+		var sum = 0;
+		for( var el in obj ) {
+			if( obj.hasOwnProperty( el ) ) {
+				sum += parseFloat( obj[el] );
+			}
+		}
+		return sum;
 	}
 
+	tQ = sum(score);
 
-	// Render output page
-	function congrats2(){
 
-		// normalize scores
-		score["Tech"] = score["Tech"] * 1.5;
-		score["Lifestyle"] = score["Lifestyle"] * (6/5);
-		score["Convenience"] = score["Convenience"] * 1.5;
-		score["Vanity"] = score["Vanity"] * 2;
+	document.getElementById('question').innerHTML = "";
+	document.getElementById('secondRow').innerHTML = "";
 
-		function sum( obj ) {
-		  var sum = 0;
-		  for( var el in obj ) {
-		    if( obj.hasOwnProperty( el ) ) {
-		      sum += parseFloat( obj[el] );
-		    }
-		  }
-		  return sum;
+	var chart = new CanvasJS.Chart("firstRow", {
+		animationEnabled: true,
+
+		title:{
+			text:"Your personality composition is likely:"
+		},
+		axisX:{
+			interval: 1
+		},
+		axisY2:{
+			interlacedColor: "rgba(1,77,101,.2)",
+			gridColor: "rgba(1,77,101,.1)",
+			title: "Percentage"
+		},
+		data: [{
+			type: "bar",
+			name: "companies",
+			axisYType: "secondary",
+			color: "#014D65",
+			dataPoints: [
+				{ y: Math.round(100*score["Social"]/tQ), label: "Social" },
+				{ y: Math.round(100*score["Tech"]/tQ), label: "Tech" },
+				{ y: Math.round(100*score["Lifestyle"]/tQ), label: "Lifestyle" },
+				{ y: Math.round(100*score["Convenience"]/tQ), label: "Convenience" },
+				{ y: Math.round(100*score["Vanity"]/tQ), label: "Vanity" },
+				{ y: Math.round(100*score["Luxury"]/tQ), label: "Luxury" },
+			]
+		}]
+	});
+	chart.render();
+
+}
+// End of the results output
+
+
+// Render output page
+function congrats3(){
+
+	// normalize scores
+	score["Tech"] = score["Tech"] * 1.5;
+	score["Lifestyle"] = score["Lifestyle"] * (6/5);
+	score["Convenience"] = score["Convenience"] * 1.5;
+	score["Vanity"] = score["Vanity"] * 2;
+
+	function sortProperties(obj)
+	{
+		var sortable=[];
+		for(var key in obj)
+		{
+			sortable.push([key, obj[key]]);
 		}
 
-		tQ = sum(score);
-
-
-		document.getElementById('question').innerHTML = "";
-		document.getElementById('secondRow').innerHTML = "";
-
-		var chart = new CanvasJS.Chart("firstRow", {
-			animationEnabled: true,
-
-			title:{
-				text:"Your personality composition is likely:"
-			},
-			axisX:{
-				interval: 1
-			},
-			axisY2:{
-				interlacedColor: "rgba(1,77,101,.2)",
-				gridColor: "rgba(1,77,101,.1)",
-				title: "Percentage"
-			},
-			data: [{
-				type: "bar",
-				name: "companies",
-				axisYType: "secondary",
-				color: "#014D65",
-				dataPoints: [
-					{ y: Math.round(100*score["Social"]/tQ), label: "Social" },
-					{ y: Math.round(100*score["Tech"]/tQ), label: "Tech" },
-					{ y: Math.round(100*score["Lifestyle"]/tQ), label: "Lifestyle" },
-					{ y: Math.round(100*score["Convenience"]/tQ), label: "Convenience" },
-					{ y: Math.round(100*score["Vanity"]/tQ), label: "Vanity" },
-					{ y: Math.round(100*score["Luxury"]/tQ), label: "Luxury" },
-				]
-			}]
+		sortable.sort(function(a, b)
+		{
+			return a[1]-b[1];
 		});
-		chart.render();
-
+		return sortable; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
 	}
-	// End of the results output
 
-	</script>
+	// sort the scores
+	var sscores = sortProperties(score);
+
+	var last_element = sscores[sscores.length - 1];
+
+
+	console.log(sortProperties(score));
+	console.log(last_element["0"]);
+
+	function sum( obj ) {
+		var sum = 0;
+		for( var el in obj ) {
+			if( obj.hasOwnProperty( el ) ) {
+				sum += parseFloat( obj[el] );
+			}
+		}
+		return sum;
+	}
+
+	tQ = sum(score);
+
+
+	document.getElementById('question').innerHTML = "";
+	document.getElementById('secondRow').innerHTML = "";
+
+
+}
+// End of the results output
+
+</script>
 
 </body>
