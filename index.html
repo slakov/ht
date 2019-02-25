@@ -236,27 +236,38 @@ function congrats3(){
 	var sscores = sortProperties(score);
 
 	var last_element = sscores[sscores.length - 1];
+	var second_last_element = sscores[sscores.length - 2];
 
 	// Resolve the ties
 
 	var dominant_pillar = last_element["0"];
+	var dominant_score = last_element["1"];
 
-	var dominant_score = last_element["1"]
+	var second_score = second_last_element["1"];
 
-	rankPillars = {
-		"Vanity": 2,
-		"Lifestyle": 5,
-		"Social": 3,
-		"Convenience": 4,
-		"Tech": 1,
-		"Luxury": 0
+	if (dominant_score == second_score){
+
+		var second_pillar = second_last_element["0"];
+
+		rankPillars = {
+			"Vanity": 2,
+			"Lifestyle": 5,
+			"Social": 3,
+			"Convenience": 4,
+			"Tech": 1,
+			"Luxury": 0
+		}
+
+		score[dominant_pillar] = score[dominant_pillar] + rankPillars[dominant_pillar];
+		score[second_pillar] = score[second_pillar] + rankPillars[second_pillar];
+		sscores = sortProperties(score);
+		last_element = sscores[sscores.length - 1];
+		var dominant_pillar = last_element["0"];
+
 	}
-
 
 	// console.log(sortProperties(score));
 	// console.log(last_element["0"]);
-
-
 
 	function sum( obj ) {
 		var sum = 0;
@@ -272,7 +283,8 @@ function congrats3(){
 
 
 	document.getElementById('question').innerHTML = dominant_pillar;
-	document.getElementById('secondRow').innerHTML = dominant_score;
+	document.getElementById('firstRow').innerHTML = "<img src=./img/" + dominant_pillar + ".jpg>";
+	document.getElementById('secondRow').innerHTML = "text";
 
 
 }
