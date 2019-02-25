@@ -281,8 +281,17 @@ function congrats3(){
 
 	tQ = sum(score);
 
+	var output_title= {
+		"Vanity": "You can have all you want, without all you don’t want. You don’t need to compromise",
+		"Lifestyle": "You base your decisions on facts and information. You choose just the best",
+		"Social": "Moments of enjoyment are important to you. You can enjoy new moments with your friends and family because of IQOS",
+		"Convenience": "You can have all you want, without all you don’t want. You don’t need to compromise",
+		"Tech": "You base your decisions on facts and information. You choose just the best",
+		"Luxury": "You love beautiful things, that make you stand out"
+	}
 
-	document.getElementById('question').innerHTML = dominant_pillar;
+
+	document.getElementById('question').innerHTML = output_title[dominant_pillar];
 	document.getElementById('firstRow').innerHTML = "<img src=./img/" + dominant_pillar + ".jpg> <br>";
 	document.getElementById('secondRow').innerHTML = "<br>text";
 
