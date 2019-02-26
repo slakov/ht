@@ -281,7 +281,7 @@ function congrats3(){
 
 	tQ = sum(score);
 
-	var output_title= {
+	var output_title = {
 		"Vanity": "You can have all you want, without all you don’t want. You don’t need to compromise",
 		"Lifestyle": "You base your decisions on facts and information. You choose just the best",
 		"Social": "Moments of enjoyment are important to you. You can enjoy new moments with your friends and family because of IQOS",
@@ -290,10 +290,17 @@ function congrats3(){
 		"Luxury": "You love beautiful things, that make you stand out"
 	}
 
+	var output_text = {
+		"Social": "<br><b>Why is IQOS for you?</b>\
+		 						<br>Nothing gets in the way of your night out with friends. Not even smoke.\
+								<br>Because getting together with your friends should be about filling the room with laughs, not smoke.\
+								<br>Switching to IQOS means switching from hanging outside to hanging out: Don’t miss any moments thanks to IQOS."
+	}
+
 
 	document.getElementById('question').innerHTML = output_title[dominant_pillar];
 	document.getElementById('firstRow').innerHTML = "<img src=./img/" + dominant_pillar + ".jpg> <br>";
-	document.getElementById('secondRow').innerHTML = "<br>text";
+	document.getElementById('secondRow').innerHTML = output_text[dominant_pillar];
 
 
 }
