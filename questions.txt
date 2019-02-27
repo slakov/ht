@@ -28,11 +28,11 @@ b.      Couple’s massage  [Lifestyle / Vanity]
 c.       Double date night with our friends [Social]
 d.      Not having to do chores for one evening [Convenience]
 
-6.       How would you describe your style?
-a.       Always on the go [Convenience]
-b.      Design brand only [Luxury]
-c.       Active & sporty [Lifestyle]
-d.      I like to accentuate my best body parts [Vanity]
+6.      How would you describe your style?
+a.      I wear comfortable clothes [Convenience]
+b.      Design brands only [Luxury]
+c.      Active and sporty [Lifestyle]
+d.      I try to look my best [Vanity]
 
 7.       If you had a salary increase of $1000, how would you spend it?
 a.       Shopping spree at my favorite design stores [Luxury]
