@@ -15,6 +15,33 @@
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	<script type="text/javascript"  src='http://cdn.renderedfont.com/js/renderedfont-0.8.min.js#free'></script>
 
+
+<script>
+
+// Make an AJAX call to Google Script
+function callGoogleScript() {
+
+	var url = "https://script.google.com/macros/s/AKfycbw9QcL541wonbEY23jOoUFlBYaiHAZxQdJPW2vtRtLCBNCs1Gon/exec?callback=ctrlq&name=";
+	var name = "Amit Agarwal";
+
+	var request = jQuery.ajax({
+		crossDomain: true,
+		url: url + encodeURIComponent(name),
+		method: "GET",
+		dataType: "jsonp"
+	});
+
+}
+
+// print the returned data
+function ctrlq(e) {
+	console.log(e.result)
+}
+</script>
+
+<script>callGoogleScript();</script>
+
+
 	<center>
 		<h1 id="question" text-align: center;>What do you like to do on the weekends? <br> (click the picture)</h1>
 
@@ -23,13 +50,13 @@
 			<div class="column">
 				<figure>
 					<img id="l1" src="./img/q1Social.jpg" style="width:100%" onclick="nextQuestion('l1')">
-					<figcaption id="l1caption"> Interacting with friends </figcaption>
+					<figcaption id="l1caption"> Hang out with friends </figcaption>
 				</figure>
 			</div>
 			<div class="column">
 				<figure>
 					<img id="l2" src="./img/q1Tech.jpg" style="width:100%" onclick="nextQuestion('l2')">
-					<figcaption id="l2caption"> Entertaining with technology </figcaption>
+					<figcaption id="l2caption"> Entertaining with Technology </figcaption>
 				</figure>
 			</div>
 		</div>
@@ -37,13 +64,13 @@
 			<div class="column">
 				<figure>
 					<img id="l3" src="./img/q1Lifestyle.jpg" style="width:100%" onclick="nextQuestion('l3')">
-					<figcaption id="l3caption"> Working out in a gym </figcaption>
+					<figcaption id="l3caption"> Work out </figcaption>
 				</figure>
 			</div>
 			<div class="column">
 				<figure>
 					<img id="l4" src="./img/q1Luxury.jpg" style="width:100%" onclick="nextQuestion('l4')">
-					<figcaption id="l4caption"> Shopping for luxury items </figcaption>
+					<figcaption id="l4caption"> Fancy Shopping </figcaption>
 				</figure>
 			</div>
 		</div>
@@ -88,7 +115,7 @@ var alll2 = ["From Internet",
 "Only outside",
 "Supermarkets"];
 
-var alll3 = ["Research on less harmful smoking alternatives",
+var alll3 = ["Research on smoking alternatives",
 "An exercise enthusiast",
 "Playing videogames",
 "Anything that can simplify my life",
@@ -333,7 +360,6 @@ function congrats3(){
 	document.getElementById('question').innerHTML = output_title[dominant_pillar];
 	document.getElementById('firstRow').innerHTML = "<img src=./img/" + dominant_pillar + ".jpg> <br>";
 	document.getElementById('secondRow').innerHTML = output_text[dominant_pillar];
-
 
 }
 // End of the results output
